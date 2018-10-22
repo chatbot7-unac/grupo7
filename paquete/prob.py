@@ -106,7 +106,7 @@ def particion(dest,ml):
 #myAudioFile="aud.mp3"
 def extraccion_fondo(dest):
 	for archivo in os.listdir(UPLOAD_FOLDER):
-				if archivo.endswith(".mp3"):
+				
 
 					name_file=archivo.split('.')
 					
@@ -126,7 +126,7 @@ def extraccion_fondo(dest):
 						sound_CentersOut = sound_monoL.overlay(sound_monoR_inv)
 
 						# Export merged audio file
-						file_name=myAudioFile.split(".")
+						file_name=archivo.split(".")
 
 
 						sound_CentersOut.export(dest+"/"+file_name[0]+"_fondo.wav", format="wav")
