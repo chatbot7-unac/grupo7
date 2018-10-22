@@ -107,7 +107,7 @@ def particion(dest,ml):
 def extraccion_fondo(dest):
 	for archivo in os.listdir(UPLOAD_FOLDER):
 				
-
+				if archivo.endswith(".mp3"):
 					name_file=archivo.split('.')
 					
 					print(archivo)
@@ -115,7 +115,7 @@ def extraccion_fondo(dest):
 					if(name_file[1]=='mp3'):
 
 						# read in audio file and get the two mono tracks
-						sound_stereo = AudioSegment.from_file(dest+"/"+archivo ,format="mp3")
+						sound_stereo = AudioSegment.from_file(UPLOAD_FOLDER+"/"+archivo ,format="mp3")
 						sound_monoL = sound_stereo.split_to_mono()[0]
 						sound_monoR = sound_stereo.split_to_mono()[1]
 
@@ -126,14 +126,14 @@ def extraccion_fondo(dest):
 						sound_CentersOut = sound_monoL.overlay(sound_monoR_inv)
 
 						# Export merged audio file
-						file_name=archivo.split(".")
+						#file_name=archivo.split(".")
 
 
-						sound_CentersOut.export(dest+"/"+file_name[0]+"_fondo.wav", format="wav")
+						sound_CentersOut.export(dest+name_file[0]+"_fondo.wav", format="wav")
 
 
 						#gg  esto  no es perfecto  solo por algunas parte funka xdxdxd 
+						#solo  funciona con audios que no son mono xd 
 
-
-extraccion_fondo("/home/casey/Escritorio/audio")
+extraccion_fondo("/home/casey/Escritorio/audio/")
 

@@ -1,11 +1,5 @@
 import os
-
 from flask import flash
-from pydub import AudioSegment
-import wave
-from pydub.utils import make_chunks
-import sox
-
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from conjf import problem1

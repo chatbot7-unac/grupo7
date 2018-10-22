@@ -10,7 +10,7 @@ def problem1(dest,v,ml):
 	ruido(dest)
 	velocidad(dest,v)
 	particion(dest,ml)
-
+	extraccion_fondo(dest)
 
 
 
